@@ -45,3 +45,15 @@ Add the `primary key (column_name_1, column_name_2, ....)` at the end before the
 Add the `foreign key (column_name) references parent_table(parent_column)`at the end before the closing parentheses `)` while creating the table.
 
 ####
+
+### Deleting rows
+
+`delete from table_name where delete_condition(s)`
+
+
+
+### Important Points to Note
+
+* `delete`: Delete row(s) from the table. But schema is not lost
+* `drop`: Entire table is deleted along with schema.
+* `truncate`: Deletes the table along with schema, but the schema is regenerated.
