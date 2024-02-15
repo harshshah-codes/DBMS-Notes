@@ -1,0 +1,1113 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+        <link rel="next" href="../02%20Intro%20to%20Relational%20Model/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.9">
+    
+    
+      
+        <title>Introduction to DBMS - DBMS Notes</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.f2e4d321.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CSpace+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Space Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduction-to-dbms" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DBMS Notes" class="md-header__button md-logo" aria-label="DBMS Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DBMS Notes
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introduction to DBMS
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DBMS Notes" class="md-nav__button md-logo" aria-label="DBMS Notes" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DBMS Notes
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Welcome to MkDocs
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introduction to DBMS
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to DBMS
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#levels-of-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Levels of Abstraction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-and-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema And Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema And Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an "Instance"?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-data-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Data Independence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-definition-language-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Definition Language (DDL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-manipulation-language-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Manipulation Language (DML)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Manipulation Language (DML)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pure Languages&#x20;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial Languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL&#x20;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Approaches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relational-model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-relational-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object-Relational Data Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensible-markup-language-xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensible Markup Language (XML)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Engine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02%20Intro%20to%20Relational%20Model/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to Relational Model
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03%20Intro%20To%20SQL/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction to SQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DBMS-Query-Cheatsheet/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Cheatsheet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#levels-of-abstraction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Levels of Abstraction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#schema-and-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Schema And Instance
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Schema And Instance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-of-schema" class="md-nav__link">
+    <span class="md-ellipsis">
+      Types of schema
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-is-an-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      What is an "Instance"?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-data-independence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Data Independence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Models
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#relational-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-definition-language-ddl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Definition Language (DDL)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-manipulation-language-dml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Data Manipulation Language (DML)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Data Manipulation Language (DML)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pure-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pure Languages&#x20;
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commercial-languages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Commercial Languages
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sql" class="md-nav__link">
+    <span class="md-ellipsis">
+      SQL&#x20;
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Design
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Design">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#logical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Logical Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#physical-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      Physical Design
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-approaches" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Approaches
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#relational-model_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Relational Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#object-relational-data-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Object-Relational Data Model
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensible-markup-language-xml" class="md-nav__link">
+    <span class="md-ellipsis">
+      Extensible Markup Language (XML)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-engine" class="md-nav__link">
+    <span class="md-ellipsis">
+      Database Engine
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Database Engine">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#storage-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Storage Manager
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#query-processing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Query Processing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transaction-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transaction Manager
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="introduction-to-dbms">Introduction to DBMS</h1>
+<h2 id="levels-of-abstraction">Levels of Abstraction</h2>
+<ul>
+<li><strong>Physical Level</strong>: Describes how a record is stored on the electronic disk.&#x20;</li>
+<li><strong>Logical Level:</strong> Describes how data is stored in a database, and relations among the data fields. (<code>For Programmers and Database Engineers</code>)</li>
+<li><strong>View Level:</strong> Application programs hide details of datatype and also some information for security systems.(<code>For end-user</code>)</li>
+</ul>
+<p>//TODO: Image Fig(1.1) Page 34</p>
+<h2 id="schema-and-instance">Schema And Instance</h2>
+<p><strong>Schema</strong> is the way data will be organised and <strong>Instance</strong> is the actual data. We can consider <strong>Schema</strong> to be the <code>datatype</code> of variable and <strong>Instance</strong> to be the <code>value</code> of variable.</p>
+<h3 id="types-of-schema">Types of schema</h3>
+<ul>
+<li><strong>Logical Schema:</strong> The overall logical structure of the database.</li>
+<li><strong>Physical Schema:</strong> The overall physical structure of the database.</li>
+</ul>
+<h3 id="what-is-an-instance">What is an "Instance"?</h3>
+<ul>
+<li>The actual content of the database at an instant.&#x20;</li>
+<li>Similar to the <code>value</code> of the variable.</li>
+</ul>
+<h3 id="physical-data-independence">Physical Data Independence</h3>
+<p>The ability to modify the physical schema without changing the logical schema is called Physical Data Independence.</p>
+<ul>
+<li>Similar to independence of <strong>Interface</strong> and <strong>Implementation</strong> in <code>Object-Oriented Systems</code>.</li>
+<li>Applications depend on the logical schema.</li>
+<li>Interfaces should be well defined so that changes in some parts do not seriously affect others.</li>
+</ul>
+<h2 id="data-models">Data Models</h2>
+<p>A <strong>Data Model</strong> is a collection of tools to work and manipulate data, such as, data relationships, data semantics and data constraints.</p>
+<p>There are various kinds of models:</p>
+<ul>
+<li>Relational Models (<code>Main focus for this course</code>)</li>
+<li>Entity-Relationship Data Models</li>
+<li>Network Models</li>
+<li>Object based Data Models</li>
+</ul>
+<h3 id="relational-model">Relational Model</h3>
+<ul>
+<li>All data is stored in table.</li>
+<li>//TODO: Fig 1.2 p-2 Pg-40</li>
+</ul>
+<h2 id="data-definition-language-ddl">Data Definition Language (DDL)</h2>
+<ul>
+<li>DDL is used for defining the database schema.&#x20;</li>
+<li>DDL compiler creates a set a of table templates and stores it under <strong>Data Dictionary.</strong></li>
+<li><strong>Data Dictionary</strong> contains metadata, i.e., data about data</li>
+</ul>
+<h2 id="data-manipulation-language-dml">Data Manipulation Language (DML)</h2>
+<p>Used for accessing and manipulating data in the database. <strong>DML</strong> is also known as <code>Query Language</code>.</p>
+<p>There are two types of DMLs:</p>
+<h3 id="pure-languages"><strong>Pure Languages</strong>&#x20;</h3>
+<p>This languages are used for proving properties about computational power and for optimisation.</p>
+<p>There are three sub sections for the pure languages:</p>
+<ul>
+<li>Relational Algebra</li>
+<li>Tuple Relational Calculus&#x20;</li>
+<li>Domain related Calculus</li>
+</ul>
+<h3 id="commercial-languages"><strong>Commercial Languages</strong></h3>
+<p>Mainly used in commercial systems hence named <code>Commercial Languages</code>.&#x20;</p>
+<ul>
+<li><code>SQL</code> is an example of widely used commercial language.&#x20;</li>
+</ul>
+<h2 id="sql">SQL&#x20;</h2>
+<p>The most widely used commercial DML.</p>
+<ul>
+<li>SQL is embedded to be used with another high-level language to solve complex problems</li>
+</ul>
+<p>Applications created generally access database through some language extensions or some APIs.</p>
+<h2 id="database-design">Database Design</h2>
+<p>There are two major types of design:</p>
+<h4 id="logical-design">Logical Design</h4>
+<p>Talks about the logical layout of the database.</p>
+<p>Depends on:</p>
+<ul>
+<li><strong>Business</strong> <strong>decision:</strong> What attributes need to be recorded in the database.</li>
+<li><strong>Computer Science decision:</strong> What relation schemas are required within the database.</li>
+</ul>
+<h4 id="physical-design">Physical Design</h4>
+<p>Talks about the physical layout of the database.</p>
+<h2 id="design-approaches">Design Approaches</h2>
+<p>The methodology used to ensure that each relationship in database is good.</p>
+<p>This is achieved by two methods:</p>
+<ul>
+<li>Entity-Relationship Model</li>
+<li>Normalization Theory</li>
+</ul>
+<h2 id="relational-model_1">Relational Model</h2>
+<p>It only contains flat, <strong>atomic</strong> values, i.e., it cannot contain values as any composite data.</p>
+<h2 id="object-relational-data-model">Object-Relational Data Model</h2>
+<ul>
+<li>It extends the <strong>Relational Model</strong> using object oriented paradigm with added datatypes</li>
+<li>Attributes can have composite data types</li>
+<li>Provide upward compatibility with existing relational languages</li>
+</ul>
+<h2 id="extensible-markup-language-xml">Extensible Markup Language (XML)</h2>
+<ul>
+<li>Originally a markup language developed by WWW Consortium</li>
+<li>It had the ability to specify new tags, and created nested <strong>TAG</strong> structure.&#x20;</li>
+<li>These features made it the basis for all new generation data interchange format</li>
+</ul>
+<h2 id="database-engine">Database Engine</h2>
+<p>It is basically composed of three main components:</p>
+<ul>
+<li>Storage Manager</li>
+<li>Query Processing</li>
+<li>Transaction Manager</li>
+</ul>
+<h3 id="storage-manager">Storage Manager</h3>
+<p>It is a program module that provides the interface between the low level data stored in the database and the application programs and queries submitted to the system.&#x20;</p>
+<p>The main functions of the <strong>Storage Manager</strong> are the:</p>
+<ul>
+<li>It interacts with the OS file manager.</li>
+<li>It efficiently stores, retrieves and updates data.</li>
+</ul>
+<h3 id="query-processing">Query Processing</h3>
+<pre class="mermaid"><code>
+flowchart TB
+A[Query] --&gt; B{Parser and \n translator}
+B --&gt; C(Relational-Algebra Expression)
+C --&gt; D{Optimiser}
+D --&gt; E(Execution Plan)
+E --&gt; F{Evaluation Engine}
+F --&gt;|Data| G(Query Output)
+H((Statistics About \nData)) --&gt; D
+</code></pre>
+<h3 id="transaction-manager">Transaction Manager</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href=".." class="md-footer__link md-footer__link--prev" aria-label="Previous: Welcome to MkDocs">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Welcome to MkDocs
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../02%20Intro%20to%20Relational%20Model/" class="md-footer__link md-footer__link--next" aria-label="Next: Introduction to Relational Model">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Introduction to Relational Model
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["content.code.copy", "content.code.select", "navigation.footer", "navigation.path"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="../javascripts/katex.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/katex.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.7/contrib/auto-render.min.js"></script>
+      
+    
+  </body>
+</html>
